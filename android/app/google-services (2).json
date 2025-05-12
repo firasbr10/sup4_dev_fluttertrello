@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "637152255887",
+    "project_id": "sup4-dev-fluttertrello",
+    "storage_bucket": "sup4-dev-fluttertrello.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637152255887:android:de1adc45d1d87f592e35fa",
+        "android_client_info": {
+          "package_name": "com.example.sup4_dev_fluttertrello"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9f2IIDQ-hM58i-2-mlJ-JzB59nWVWOes"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
