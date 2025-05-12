@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sup4_dev_fluttertrello/providers/auth_provider.dart';
-import 'package:sup4_dev_fluttertrello/views/auth/signup_screen.dart'; 
+import 'package:sup4_dev_fluttertrello/views/auth/signup_screen.dart';
+import 'package:sup4_dev_fluttertrello/views/dashboard/dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -21,17 +22,26 @@ class _LoginScreenState extends State<LoginScreen> {
 
     setState(() => _isLoading = true);
     try {
-      await Provider.of<AuthProvider>(context, listen: false).login(
+      final authProvider = Provider.of<AuthProvider>(context, listen: false);
+      final success = await authProvider.login(
         _emailController.text.trim(),
         _passwordController.text,
       );
-      // Naviguer vers le dashboard après connexion
+
+      if (success && mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const DashboardScreen()),
+        );
+      }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(e.toString())),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.toString())),
+        );
+      }
     } finally {
-      setState(() => _isLoading = false);
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 

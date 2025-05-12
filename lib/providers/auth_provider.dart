@@ -12,9 +12,9 @@ class AuthProvider with ChangeNotifier {
     try {
       _currentUser = await _authService.signIn(email, password);
       notifyListeners();
-      return true;
+      return true; // Retourne true si la connexion réussit
     } catch (e) {
-      throw e.toString(); // Transmet l'erreur à l'UI
+      throw e.toString();
     }
   }
 

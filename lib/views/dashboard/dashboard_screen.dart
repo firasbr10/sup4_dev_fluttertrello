@@ -25,7 +25,10 @@ class DashboardScreen extends StatelessWidget {
           children: [
             Text('Connecté en tant que : ${user?.email ?? ''}'),
             const SizedBox(height: 20),
-            const CircularProgressIndicator(), // Indicateur de chargement temporaire
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Créer un projet'),
+            ),
           ],
         ),
       ),

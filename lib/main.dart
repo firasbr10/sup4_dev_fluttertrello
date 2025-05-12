@@ -3,15 +3,14 @@ import 'package:provider/provider.dart';
 import 'package:sup4_dev_fluttertrello/providers/auth_provider.dart';
 import 'package:sup4_dev_fluttertrello/views/auth/login_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart'; 
-import 'package:sup4_dev_fluttertrello/views/dashboard/dashboard_screen.dart'; 
+import 'firebase_options.dart';
+import 'package:sup4_dev_fluttertrello/views/dashboard/dashboard_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Initialisation Firebase avec configuration explicite
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.web, 
+    options: DefaultFirebaseOptions.web,
   );
 
   runApp(
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const LoginScreen(),
       routes: {
-        '/dashboard': (context) => const DashboardScreen(), 
+        '/dashboard': (context) => const DashboardScreen(),
       },
     );
   }
